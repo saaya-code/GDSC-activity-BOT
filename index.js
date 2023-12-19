@@ -36,18 +36,22 @@ client.on('ready', () => {
 
 
 
-    client.on(Events.InteractionCreate, async interaction => {
-        if (!interaction.isCommand()) return;
-        try{
-        await client.commands.get(interaction.commandName).execute(interaction, client);
-        }
-        catch(err){
-            console.log(err);
-            await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: false });
-        }
-    });
-        const announce = require('./helpers/announce');
-        client.on(Events.MessageCreate, async message => {
-            await announce(message, client);
-        });
+client.on(Events.InteractionCreate, async interaction => {
+    if (!interaction.isCommand()) return;
+    try{
+    await client.commands.get(interaction.commandName).execute(interaction, client);
+    }
+    catch(err){
+        console.log(err);
+        await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: false });
+    }
+});
+const announce = require('./helpers/announce');
+
+client.on(Events.MessageCreate, async message => {
+    await announce(message, client);
+});
+
+
+        
 client.login(process.env.BOT_TOKEN);

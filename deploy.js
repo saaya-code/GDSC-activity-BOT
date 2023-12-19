@@ -9,7 +9,7 @@ const token = process.env.BOT_TOKEN;
 
 const commands = [];
 const foldersPath = path.join(__dirname, 'commands');
-const commandFolders = fs.readdirSync(foldersPath);
+//const commandFolders = fs.readdirSync(foldersPath);
 
 
 
