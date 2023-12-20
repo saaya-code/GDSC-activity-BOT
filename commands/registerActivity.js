@@ -52,7 +52,7 @@ module.exports = {
                 components: [row1,row2],
             });
 		    const collectorFilter = i => i.user.id === interaction.user.id;
-            const collector = response.createMessageComponentCollector({ componentType: ComponentType.StringSelect});
+            const collector = response.createMessageComponentCollector({ componentType: ComponentType.StringSelect, filter: collectorFilter});
 
             collector.on('collect', async i => {
             if (i.values){
